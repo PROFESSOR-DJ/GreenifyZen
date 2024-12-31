@@ -47,8 +47,7 @@ logger = logging.getLogger(__name__)
 
 # MongoDB credentials
 mongo_uri = os.getenv('MONGO_URI')
-client = MongoClient(mongo_uri, ssl=True, ssl_cert_reqs=ssl.CERT_NONE,
-                     tls=True, tlsAllowInvalidCertificates=True)
+client = MongoClient(mongo_uri, tls=True, tlsAllowInvalidCertificates=True)
 db = client['User_Login_Credentials']
 otp_collection = db['OTP_Codes']
 
