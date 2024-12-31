@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" style="width: max-content; height: max-content;" href="../static/img/Company Logo/Logo_editable-01-removebg.png">
+    <title>GreenifyZen</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    
+
+</head>
+
+<body>
+    <div id="lottie-container-left"></div>
+    <div id="lottie-top-right"></div>
+    <div id="logo"><img src="../static/img/Company Logo/Logo.png"></div>
+
+    <div class="wrapper">
+        <form action="/login" method="post">
+            <h2>Login</h2>
+            <div class="input-field">
+                <input type="email" id="email" name="email" required>
+                <label>Enter your email</label>
+            </div>
+            <div class="input-field">
+                <input type="password" id="password" name="password" required>
+                <label>Enter your password</label>
+            </div>
+            <div class="forget">
+                <a href="/forgot">Forgot password?</a>
+            </div>
+            <button type="submit">Log In</button>
+            <div class="register">
+                <p>Don't have an account? <a href="/register">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript to handle pop-up message -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const flashMessage = "{{ get_flashed_messages()[0] }}";
+            if (flashMessage) {
+                alert(flashMessage);
+            }
+        });
+        
+                var animation = lottie.loadAnimation({
+                    container: document.getElementById('lottie-container-left'), // the container element
+                renderer: 'svg', // rendering type ('svg', 'canvas', 'html')
+                loop: true,      // whether the animation should loop
+                autoplay: true,  // whether the animation should start automatically
+                path: '../static/img/Company Logo/bottom-left.json' // path to your JSON animation file
+  });   
+     var animationTopRight = lottie.loadAnimation({
+            container: document.getElementById('lottie-top-right'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '../static/img/Company Logo/top-right.json' // Path to the second animation file
+        });
+
+        // Load the third animation (center-right corner)
+        var animationCenterRight = lottie.loadAnimation({
+            container: document.getElementById('lottie-center-right'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '../static/img/Company Logo/center-right.json' // Path to the third animation file
+        });
+        
+
+    </script>
+</body>
+
+</html>

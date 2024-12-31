@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../static/img/Company Logo/Logo_editable-01-removebg.png">
+    <!--company logo-->
+    <link rel="icon" type="image/png" href="../static/img/Company Logo/Logo_editable-01-removebg.png">
+    <!--company logo as icon-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>GreenifyZen</title>
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"
+        name="viewport" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="canonical" href="../static/img/Company Logo/Logo_editable-01-removebg.png" /><!--company home page-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../static/css/now-ui-dashboard.min5136.css" rel="stylesheet" />
+    <style>
+        body {
+            overflow-y: hidden;
+        }
+
+        .panel-header {
+            height: 260px;
+            padding-top: 80px;
+            padding-bottom: 45px;
+            background: #141e30;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        #lottie-panel-header {
+            position: absolute;
+            top: 0px;
+            ;
+            left: 0px;
+            width: fit-content;
+            height: fit-content;
+            pointer-events: none;
+            /* Ensures no interaction with the animation */
+            z-index: 0;
+            /* Adjust if necessary, depending on content */
+        }
+
+
+        /* General Table Styling */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            /* For smooth scrolling on touch devices */
+            background-color: #f5f5f5;
+            /* Light background for table container */
+        }
+
+        .table {
+            width: 100%;
+            min-width: 1000px;
+            /* Ensure the table has a minimum width */
+            border-collapse: separate;
+            border-spacing: 0;
+            /* Removes spacing between cells */
+            margin: 0 auto;
+            background-color: #ffffff;
+            /* White table background */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow for depth */
+        }
+
+        /* Table Header */
+        .table th {
+            background-color: #388e3c;
+            /* Green header */
+            color: #ffffff;
+            /* White text for header */
+            font-weight: bold;
+            padding: 12px 16px;
+            border-left: 2px solid #ffffff;
+            /* White borders between columns */
+            border-right: 2px solid #ffffff;
+            border-bottom: 2px solid #388e3c;
+            /* Ensures the header row has a solid bottom border */
+            text-align: left;
+        }
+
+        /* Table Cells */
+        .table td {
+            padding: 12px 16px;
+            text-align: left;
+            border: 1px solid #cccccc;
+            /* Light gray borders between columns */
+            white-space: nowrap;
+            font-size: 14px;
+            background-color: #f9f9f9;
+            /* Light gray for cell background */
+            color: #333333;
+            /* Dark text for contrast */
+        }
+
+        /* Uniform Input and Select Size */
+        input,
+        select {
+            width: 100%;
+            /* Full width for both input and select */
+            padding: 8px;
+            /* Even padding for both */
+            box-sizing: border-box;
+            /* Ensures padding is included in width */
+            border: 1px solid #c8e6c9;
+            /* Light green border */
+            border-radius: 4px;
+            background-color: #ffffff;
+            font-size: 14px;
+        }
+
+        /* Hover Effect on Rows */
+        .table tr:hover {
+            background-color: #e8f5e9;
+            /* Light green on hover */
+        }
+
+        /* Alternate Row Colors */
+        .table tr:nth-child(odd) td {
+            background-color: #f1f8e9;
+            /* Soft green for odd rows */
+        }
+
+        /* Responsive Table for Tablets */
+        @media (max-width: 768px) {
+            .table-responsive {
+                border: 0;
+            }
+
+            .table th,
+            .table td {
+                padding: 8px;
+            }
+
+            .table th,
+            .table td:before {
+                content: attr(data-label);
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+        }
+
+        /* Responsive Table for Mobile */
+        @media (max-width: 480px) {
+
+            .table th,
+            .table td {
+                display: block;
+                width: 100%;
+                text-align: right;
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .table th,
+            .table td:before {
+                text-align: left;
+                padding-right: 10px;
+                font-size: 12px;
+            }
+
+            .table tr {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                border-bottom: 1px solid #ddd;
+            }
+        }
+
+        /* Column Width Adjustments */
+        .classification,
+        .description,
+        .quantity,
+        .measurement,
+        .unit_price,
+        .amount,
+        .disc_rate,
+        .disc_amount,
+        .amt_excemp,
+        .tax_rate,
+        .tax_amt,
+        .subtotal,
+        .total_in,
+        .total_ex {
+            width: 120px;
+            /* Same width for all columns */
+        }
+
+        /* Add Row Button Styling */
+        #add-row-btn {
+            margin-top: 15px;
+            padding: 12px 20px;
+            background-color: #388e3c;
+            /* Green button */
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 0 auto;
+            font-size: 16px;
+            /* Larger font size for readability */
+        }
+
+        #add-row-btn:hover {
+            background-color: #2e7d32;
+            /* Darker green on hover */
+        }
+
+        /* Search Input Field */
+        .search-input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: 1px solid #c8e6c9;
+            /* Light green border */
+            border-radius: 4px;
+        }
+
+        /* Delete Button Styling */
+        .delete-btn {
+            cursor: pointer;
+            color: #e53935;
+            /* Red delete button */
+            font-size: 18px;
+        }
+
+        .delete-btn:disabled {
+            color: grey;
+            cursor: not-allowed;
+        }
+        
+        
+
+    </style>
+
+
+</head>
+
+<body class=" sidebar-mini ">
+
+    <div class="wrapper ">
+        <div class="sidebar" data-color="green">
+
+            <div class="logo">
+                <a href="/dashboard" class="simple-text logo-mini" style="width: 50px;"><img
+                        src="../static/img/Company Logo/Logo_editable-01-removebg.png" /></a>
+                <a href="/dashboard" class="simple-text logo-normal" style="width: 110px;"><img
+                        src="../static/img/Company Logo/Logo-removebg-preview.png" /></a><!--home page link-->
+                <div class="navbar-minimize">
+                    <button id="minimizeSidebar" class="btn btn-outline-white btn-icon btn-round">
+                        <i class="now-ui-icons text_align-center visible-on-sidebar-regular"></i>
+                        <i class="now-ui-icons design_bullet-list-67 visible-on-sidebar-mini"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="sidebar-wrapper" id="sidebar-wrapper">
+                <div class="user">
+                    <div class="photo">
+                        <img
+                            src="../static/img/james.jpg" /><!--this should fetch the image from database and show here-->
+                    </div>
+                    <div class="info">
+                        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                            <span>DHIRAAJ K V<b class="caret"></b></span><!--fetch name from database-->
+                        </a>
+                        <div class="clearfix"></div>
+                        <div class="collapse" id="collapseExample">
+                            <ul class="nav">
+                                <li>
+                                    <a href="/profile">
+                                        <span
+                                            class="sidebar-mini-icon now-ui-icons users_single-02"></span><!--to provide user icon image-->
+                                        <span class="sidebar-normal">My Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/contactUs">
+                                        <span
+                                            class="sidebar-mini-icon now-ui-icons design-2_ruler-pencil"></span><!--to provide edit icon image-->
+                                        <span class="sidebar-normal">Contact Us</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a href="https://greenifyzen.com/">
+                            <i class="now-ui-icons shopping_shop"></i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <ul class="nav">
+                        <li>
+                            <a href="/dashboard">
+                                <i class="now-ui-icons business_chart-bar-32"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav">
+                            <a data-toggle="collapse" href="#pagesExamples">
+                                <i class="now-ui-icons ui-1_simple-add"></i>
+                                <p>Create<b class="caret"></b></p>
+                            </a>
+                            <div class="collapse " id="pagesExamples">
+                                <ul class="nav">
+                                    <li class="nav">
+                                        <a href="/invoice_redirect">
+                                            <span class="sidebar-mini-icon">I</span>
+                                            <span class="sidebar-normal"> Invoice </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/creditNote">
+                                            <span class="sidebar-mini-icon">C</span>
+                                            <span class="sidebar-normal"> Credit Note </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/debitNote">
+                                            <span class="sidebar-mini-icon">D</span>
+                                            <span class="sidebar-normal"> Debit Note </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/refundNote">
+                                            <span class="sidebar-mini-icon">R</span>
+                                            <span class="sidebar-normal"> Refund Document </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/po">
+                                            <span class="sidebar-mini-icon">P</span>
+                                            <span class="sidebar-normal"> PO </span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                        <li class="active">
+                            <a href="/get_documents">
+                                <i class="now-ui-icons education_paper"></i>
+                                <p>Documents</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="inbox.html">
+                                <i class="now-ui-icons ui-1_email-85"></i>
+                                <p>Inbox</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="chat.html">
+                                <i class="now-ui-icons ui-2_chat-round"></i>
+                                <p>Chat</p>
+                            </a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        <div class="main-panel" id="main-panel">
+
+            <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </button>
+                        </div>
+                        <a class="navbar-brand" href="/get_documents">Documents</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <!--search function-->
+                        <form>
+                            <div class="input-group no-border">
+                                <input type="text" value class="form-control"
+                                    placeholder="Search..."><!--search function-->
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="now-ui-icons ui-1_zoom-bold"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!---end of search function-->
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="now-ui-icons ui-1_bell-53"></i>
+
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <i class="now-ui-icons users_single-02"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block">User</span>
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="/profile">Profile</a>
+                                    <a class="dropdown-item" href="/">Log Out</a>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="panel-header">
+                <div id="lottie-panel-header"></div>
+            </div>
+            <!--main body-->
+
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card ">
+                            <div class="card-header ">
+                                <h4 class="card-title">Get Documents</h4>
+                                <br>
+                                <form>
+                                    <div class="input-group no-border">
+                                        <input type="text" value class="form-control" placeholder="Search..."><!--search function-->
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <i class="now-ui-icons ui-1_zoom-bold"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <br>
+                            </div>
+                            
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="text-primary">
+                                            <tr>
+                                                <th class="text-center">S.No</th>
+                                                <th>Document Code</th>
+                                                <th>Category</th>
+                                                <th class="text-center">Status</th>
+                                                <th class="text-right">Date and Time of Validation</th>
+                                                <th class="text-right">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% if documents %}
+                                            {% for doc in documents %}
+                                            <tr>
+                                                <td class="text-center">{{ loop.index }}</td>
+                                                <td>{{ doc.document_code }}</td>
+                                                <td>{{ doc.category }}</td>
+                                                <td class="text-center">{{ doc.status }}</td>
+                                                <td class="text-right">{{ doc.validation_time }}</td>
+                                                <td class="text-right">
+                                                    <button type="button" class="btn btn-info btn-sm" onclick="fetchDocInfo('{{ doc.uuid }}')" title="Info">
+                                                        <img src="../static/img/info_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg">
+                                                    </button>
+                                                    
+                                                    <button type="button" class="btn btn-default btn-sm cancel-btn" title="Cancel" data-uuid="{{ doc.uuid }}"
+                                                        data-submission-uid="{{ doc.submissionUid }}" data-invoice-id="{{ doc.invoiceId }}"
+                                                        style="background-color: #e53935;"> <img
+                                                            src="../static/img/cancel_presentation_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg"> </button>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                            {% else %}
+                                            <tr>
+                                                <td colspan="6" class="text-center">No documents found</td>
+                                            </tr>
+                                            {% endif %}
+                                        </tbody>
+
+                                    </table>
+                                    <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="cancelModalLabel">Cancel Document</h5> <button type="button" class="close"
+                                                        data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form id="cancelForm">
+                                                        <div class="form-group"> <label for="cancelReason">Reason for Cancellation</label> <input
+                                                                type="text" class="form-control" id="cancelReason" name="cancelReason" required> </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer"> <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close</button> <button type="button" class="btn btn-danger"
+                                                        id="confirmCancelBtn">Cancel Document</button> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!--end of main body-->
+
+
+
+
+    </div>
+
+
+
+    <script src="../static/js/core/jquery.min.js"></script>
+    <script src="../static/js/core/popper.min.js"></script>
+    <script src="../static/js/core/bootstrap.min.js"></script>
+    <script src="../static/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../static/js/plugins/moment.min.js"></script>
+
+    <script src="../static/js/plugins/bootstrap-switch.js"></script>
+
+    <script src="../static/js/plugins/sweetalert2.min.js"></script>
+
+    <script src="../static/js/plugins/jquery.validate.min.js"></script>
+
+    <script src="../static/js/plugins/jquery.bootstrap-wizard.js"></script>
+
+    <script src="../static/js/plugins/bootstrap-selectpicker.js"></script>
+
+    <script src="../static/js/plugins/bootstrap-datetimepicker.js"></script>
+
+    <script src="../static/js/plugins/jquery.dataTables.min.js"></script>
+
+    <script src="../static/js/plugins/bootstrap-tagsinput.js"></script>
+
+    <script src="../static/js/plugins/jasny-bootstrap.min.js"></script>
+
+    <script src="../static/js/plugins/fullcalendar.min.js"></script>
+
+    <script src="../static/js/plugins/jquery-jvectormap.js"></script>
+
+    <script src="../static/js/plugins/nouislider.min.js"></script>
+
+    
+
+    <script async defer src="../static/js/plugins/buttons.js"></script>
+
+    <script src="../static/js/plugins/chartjs.min.js"></script>
+
+    <script src="../static/js/plugins/bootstrap-notify.js"></script>
+    <script src="../static/js/now-ui-dashboard.min5136.js?v=1.6.0" type="text/javascript"></script>
+    <script src="../static/demo/demo.js"></script>
+
+    <script src="../static/demo/jquery.sharrre.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const flashMessage = "{{ get_flashed_messages()[0] }}";
+            const flashMessageContainer = document.getElementById('flash-message');
+
+            if (flashMessage) {
+                flashMessageContainer.textContent = flashMessage;
+                flashMessageContainer.style.display = 'block';
+            }
+        });
+        var animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-panel-header'), // The container for the animation
+            renderer: 'svg', // Rendering type
+            loop: true,      // Whether the animation should loop
+            autoplay: true,  // Whether the animation should start automatically
+            path: '../static/img/Company Logo/Animation - 1727062222149.json' // Path to your Lottie JSON file
+        });
+        $(document).ready(function () {
+            $().ready(function () {
+                $sidebar = $('.sidebar');
+                $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+                $full_page = $('.full-page');
+
+                $sidebar_responsive = $('body > .navbar-collapse');
+                sidebar_mini_active = true;
+
+                window_width = $(window).width();
+
+                fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+                // if( window_width > 767 && fixed_plugin_open == 'Dashboard' ){
+                //     if($('.fixed-plugin .dropdown').hasClass('show-dropdown')){
+                //         $('.fixed-plugin .dropdown').addClass('show');
+                //     }
+                //
+                // }
+
+                $('.fixed-plugin a').click(function (event) {
+                    // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+                    if ($(this).hasClass('switch-trigger')) {
+                        if (event.stopPropagation) {
+                            event.stopPropagation();
+                        }
+                        else if (window.event) {
+                            window.event.cancelBubble = true;
+                        }
+                    }
+                });
+
+                $('.fixed-plugin .background-color span').click(function () {
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+                    var new_color = $(this).data('color');
+
+                    if ($sidebar.length != 0) {
+                        $sidebar.attr('data-color', new_color);
+                    }
+
+                    if ($full_page.length != 0) {
+                        $full_page.attr('filter-color', new_color);
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.attr('data-color', new_color);
+                    }
+                });
+
+                $('.fixed-plugin .img-holder').click(function () {
+                    $full_page_background = $('.full-page-background');
+
+                    $(this).parent('li').siblings().removeClass('active');
+                    $(this).parent('li').addClass('active');
+
+
+                    var new_image = $(this).find("img").attr('src');
+
+                    if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                        $sidebar_img_container.fadeOut('fast', function () {
+                            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                            $sidebar_img_container.fadeIn('fast');
+                        });
+                    }
+
+                    if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                        $full_page_background.fadeOut('fast', function () {
+                            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                            $full_page_background.fadeIn('fast');
+                        });
+                    }
+
+                    if ($('.switch-sidebar-image input:checked').length == 0) {
+                        var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                        $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                        $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+                    }
+                });
+
+                $('.switch-sidebar-image input').on("switchChange.bootstrapSwitch", function () {
+                    $full_page_background = $('.full-page-background');
+
+                    $input = $(this);
+
+                    if ($input.is(':checked')) {
+                        if ($sidebar_img_container.length != 0) {
+                            $sidebar_img_container.fadeIn('fast');
+                            $sidebar.attr('data-image', '#');
+                        }
+
+                        if ($full_page_background.length != 0) {
+                            $full_page_background.fadeIn('fast');
+                            $full_page.attr('data-image', '#');
+                        }
+
+                        background_image = true;
+                    } else {
+                        if ($sidebar_img_container.length != 0) {
+                            $sidebar.removeAttr('data-image');
+                            $sidebar_img_container.fadeOut('fast');
+                        }
+
+                        if ($full_page_background.length != 0) {
+                            $full_page.removeAttr('data-image', '#');
+                            $full_page_background.fadeOut('fast');
+                        }
+
+                        background_image = false;
+                    }
+                });
+
+                $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
+                    var $btn = $(this);
+
+                    if (sidebar_mini_active == true) {
+                        $('body').removeClass('sidebar-mini');
+                        sidebar_mini_active = false;
+                        nowuiDashboard.showSidebarMessage('Sidebar mini deactivated...');
+                    } else {
+                        $('body').addClass('sidebar-mini');
+                        sidebar_mini_active = true;
+                        nowuiDashboard.showSidebarMessage('Sidebar mini activated...');
+                    }
+
+                    // we simulate the window Resize so the charts will get updated in realtime.
+                    var simulateWindowResize = setInterval(function () {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 180);
+
+                    // we stop the simulation of Window Resize after the animations are completed
+                    setTimeout(function () {
+                        clearInterval(simulateWindowResize);
+                    }, 1000);
+                });
+            });
+        });
+        $(document).ready(function () {
+            // Javascript method's body can be found in static/js/demos.js
+            demo.initDashboardPageCharts();
+
+            demo.initVectorMap();
+
+        });
+        
+
+
+        $(document).ready(function () {
+            $().ready(function () {
+                $sidebar = $('.sidebar');
+                $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+                $full_page = $('.full-page');
+
+                $sidebar_responsive = $('body > .navbar-collapse');
+                sidebar_mini_active = true;
+
+                window_width = $(window).width();
+
+                fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+                // if( window_width > 767 && fixed_plugin_open == 'Dashboard' ){
+                //     if($('.fixed-plugin .dropdown').hasClass('show-dropdown')){
+                //         $('.fixed-plugin .dropdown').addClass('show');
+                //     }
+                //
+                // }
+
+                $('.fixed-plugin a').click(function (event) {
+                    // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+                    if ($(this).hasClass('switch-trigger')) {
+                        if (event.stopPropagation) {
+                            event.stopPropagation();
+                        }
+                        else if (window.event) {
+                            window.event.cancelBubble = true;
+                        }
+                    }
+                });
+
+                $('.fixed-plugin .background-color span').click(function () {
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+                    var new_color = $(this).data('color');
+
+                    if ($sidebar.length != 0) {
+                        $sidebar.attr('data-color', new_color);
+                    }
+
+                    if ($full_page.length != 0) {
+                        $full_page.attr('filter-color', new_color);
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.attr('data-color', new_color);
+                    }
+                });
+
+                $('.fixed-plugin .img-holder').click(function () {
+                    $full_page_background = $('.full-page-background');
+
+                    $(this).parent('li').siblings().removeClass('active');
+                    $(this).parent('li').addClass('active');
+
+
+                    var new_image = $(this).find("img").attr('src');
+
+                    if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                        $sidebar_img_container.fadeOut('fast', function () {
+                            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                            $sidebar_img_container.fadeIn('fast');
+                        });
+                    }
+
+                    if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                        $full_page_background.fadeOut('fast', function () {
+                            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                            $full_page_background.fadeIn('fast');
+                        });
+                    }
+
+                    if ($('.switch-sidebar-image input:checked').length == 0) {
+                        var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                        $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                        $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+                    }
+                });
+
+                $('.switch-sidebar-image input').on("switchChange.bootstrapSwitch", function () {
+                    $full_page_background = $('.full-page-background');
+
+                    $input = $(this);
+
+                    if ($input.is(':checked')) {
+                        if ($sidebar_img_container.length != 0) {
+                            $sidebar_img_container.fadeIn('fast');
+                            $sidebar.attr('data-image', '#');
+                        }
+
+                        if ($full_page_background.length != 0) {
+                            $full_page_background.fadeIn('fast');
+                            $full_page.attr('data-image', '#');
+                        }
+
+                        background_image = true;
+                    } else {
+                        if ($sidebar_img_container.length != 0) {
+                            $sidebar.removeAttr('data-image');
+                            $sidebar_img_container.fadeOut('fast');
+                        }
+
+                        if ($full_page_background.length != 0) {
+                            $full_page.removeAttr('data-image', '#');
+                            $full_page_background.fadeOut('fast');
+                        }
+
+                        background_image = false;
+                    }
+                });
+
+                $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
+                    var $btn = $(this);
+
+                    if (sidebar_mini_active == true) {
+                        $('body').removeClass('sidebar-mini');
+                        sidebar_mini_active = false;
+                        nowuiDashboard.showSidebarMessage('Sidebar mini deactivated...');
+                    } else {
+                        $('body').addClass('sidebar-mini');
+                        sidebar_mini_active = true;
+                        nowuiDashboard.showSidebarMessage('Sidebar mini activated...');
+                    }
+
+                    // we simulate the window Resize so the charts will get updated in realtime.
+                    var simulateWindowResize = setInterval(function () {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 180);
+
+                    // we stop the simulation of Window Resize after the animations are completed
+                    setTimeout(function () {
+                        clearInterval(simulateWindowResize);
+                    }, 1000);
+                });
+            });
+        });
+         $(document).ready(function () {
+                // Javascript method's body can be found in static/js/demos.js
+                demo.initDashboardPageCharts();
+
+                demo.initVectorMap();
+
+            });
+
+            //new functions
+
+            function fetchDocInfo(uuid) {
+                    const url = `/get_doc_info?uuid=${uuid}`; // Open the URL in a new tab 
+                    window.open(url, '_blank'); }
+
+
+            $(document).ready(function () {
+                    // Fetch documents from the Flask API
+                    $.get('/get_documents', function (data) {
+                        if (data.error) {
+                            alert(data.error);
+                            return;
+                        }
+
+                        // Select the table body
+                        const tbody = $('#document-table-body');
+                        tbody.empty(); // Clear any existing rows
+
+                        // Loop through the JSON response and create rows
+                        data.forEach((doc, index) => {
+                            const row = `
+                <tr>
+                    <td class="text-center">${index + 1}</td>
+                    <td>${doc.document_code || 'N/A'}</td>
+                    <td>${doc.category || 'N/A'}</td>
+                    <td class="text-center">${doc.status || 'Pending'}</td>
+                    <td class="text-right">${doc.validation_time || 'N/A'}</td>
+                    <td class="text-right">
+                        <button type="button" class="btn btn-info btn-sm" name="download">Download</button>
+                        <button type="button" class="btn btn-success btn-sm" name="view">View</button>
+                        <button type="button" class="btn btn-danger btn-sm" name="cancel_document">Cancel</button>
+                        <button type="button" class="btn btn-danger btn-sm" name="reject_document">Reject</button>
+                        <button type="button" class="btn btn-danger btn-sm" name="share">Share</button>
+                    </td>
+                </tr>
+            `;
+                            tbody.append(row);
+                        });
+                    }).fail(function () {
+                        alert('Failed to fetch documents.');
+                    });
+                });
+
+
+
+
+                document.addEventListener('DOMContentLoaded', function () {
+                        let selectedUuid, selectedSubmissionUid, selectedInvoiceId;
+
+                        // Handle Cancel button click
+                        document.querySelectorAll('.cancel-btn').forEach(button => {
+                            button.addEventListener('click', function () {
+                                selectedUuid = this.getAttribute('data-uuid');
+                                selectedSubmissionUid = this.getAttribute('data-submission-uid');
+                                selectedInvoiceId = this.getAttribute('data-invoice-id');
+                                $('#cancelModal').modal('show');
+                            });
+                        });
+
+                        // Handle Confirm Cancel button click
+                        document.getElementById('confirmCancelBtn').addEventListener('click', function () {
+                            const cancelReason = document.getElementById('cancelReason').value;
+                            if (!cancelReason) {
+                                alert('Please enter a reason for cancellation.');
+                                return;
+                            }
+
+                            fetch(`/update_document_status/${selectedUuid}/cancel`, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    submissionUid: selectedSubmissionUid,
+                                    invoiceId: selectedInvoiceId,
+                                    reason: cancelReason
+                                })
+                            })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.error) {
+                                        alert(`Error: ${data.error}`);
+                                    } else {
+                                        alert('Document cancelled successfully.');
+                                        location.reload(); // Refresh the page to update the table
+                                    }
+                                })
+                                .catch(error => console.error('Error:', error));
+
+                            $('#cancelModal').modal('hide');
+                        });
+                    });
+
+
+
+                        
+
+    </script>
+    
+    
+</body>
+
+
+</html>

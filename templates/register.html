@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" style="width: max-content; height: max-content;"
+        href="../static/img/Company Logo/Logo_editable-01-removebg.png">
+    <title>GreenifyZen</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+</head>
+
+<body>
+    <div id="lottie-container-left"></div>
+    <div id="lottie-top-right"></div>
+    <div id="logo"><img src="../static/img/Company Logo/Logo.png"></div>
+
+    <div class="wrapper">
+        <form action="/register" method="post">
+            <h2>Register</h2>
+            <div class="input-field">
+                <input type="text" name="supplier_name" id="supplier_name" required>
+                <label>Enter Supplier/Organization name</label>
+            </div>
+            <div class="input-field">
+                <input type="email" name="email" id="email" required>
+                <label>Enter your email</label>
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" id="password" required>
+                <label>Enter your password</label>
+            </div>
+            <div class="input-field">
+                <input type="password" name="cpassword" id="cpassword" required>
+                <label>Confirm password</label>
+            </div>
+            <button type="submit">Register</button>
+            <div class="login">
+                <p style="color: white;">Have an account? <a href="/">Login</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+     document.addEventListener('DOMContentLoaded', () => {
+            const flashMessage = "{{ get_flashed_messages()[0] }}";
+            const flashMessageContainer = document.getElementById('flash-message');
+
+            if (flashMessage) {
+                flashMessageContainer.textContent = flashMessage;
+                flashMessageContainer.style.display = 'block';
+            }
+        });
+        var animation = lottie.loadAnimation({
+                container: document.getElementById('lottie-container-left'), // the container element
+                renderer: 'svg', // rendering type ('svg', 'canvas', 'html')
+                loop: true,      // whether the animation should loop
+                autoplay: true,  // whether the animation should start automatically
+                path: '../static/img/Company Logo/bottom-left.json' // path to your JSON animation file
+            });
+            var animationTopRight = lottie.loadAnimation({
+                container: document.getElementById('lottie-top-right'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: '../static/img/Company Logo/top-right.json' // Path to the second animation file
+            });
+
+            // Load the third animation (center-right corner)
+            var animationCenterRight = lottie.loadAnimation({
+                container: document.getElementById('lottie-center-right'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: '../static/img/Company Logo/center-right.json' // Path to the third animation file
+            });
+</script>
+</html>

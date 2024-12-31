@@ -1,0 +1,12 @@
+Flask
+Flask-Mail
+python-dotenv
+pymongo
+requests
+itsdangerous
+cryptography
+pdfkit
+qrcode[pil]
+werkzeug
+pillow
+gunicorn
